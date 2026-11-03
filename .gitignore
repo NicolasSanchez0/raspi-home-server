@@ -1,0 +1,10 @@
+# Secretos y datos locales: NUNCA subir
+.env
+*.env
+!.env.example
+*.conf
+!wireguard/wg0.conf.example
+*.key
+*.img
+data/
+letsencrypt/

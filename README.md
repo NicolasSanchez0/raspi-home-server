@@ -64,7 +64,7 @@ Servidor doméstico en una **Raspberry Pi 4 (1 GB)** pensado para **privacidad y
 ## 🚀 Puesta en marcha
 
 ```bash
-git clone https://github.com/TU_USUARIO/raspi-home-server.git
+git clone https://github.com/NicolasSanchez0/raspi-home-server.git
 cd raspi-home-server
 cp .env.example .env && nano .env      # rellena tus datos (no se sube a Git)
 

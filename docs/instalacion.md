@@ -54,6 +54,9 @@ curl -L https://install.pivpn.io | bash
 pivpn add          # crea un cliente (un dispositivo = un cliente)
 pivpn -qr          # muestra el QR para importarlo en el móvil
 pivpn -l           # lista clientes
+pivpn add -n portatil     # un cliente por dispositivo
+pivpn -c                  # clientes conectados y último handshake
+pivpn -r portatil         # revoca un cliente (si pierdes el dispositivo)
 ```
 
 En el router: redirigir **UDP 51820** a la IP local de la Pi.

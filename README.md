@@ -78,6 +78,21 @@ Antes de arrancar, sustituye en los compose `TU_USUARIO` (tu usuario de Linux) y
 
 En **Portainer**, cada carpeta `docker/<servicio>` se despliega como un *stack*: pega el compose y rellena las variables `${...}` en la sección *Environment variables*.
 
+## 📸 Capturas
+
+### Panel de inicio (Homarr)
+Acceso centralizado a todos los servicios del servidor.
+<img width="2463" height="824" alt="image" src="https://github.com/user-attachments/assets/3bfac378-a629-458f-ac96-3fcd8b60226c" />
+
+### Gestión de contenedores (Portainer)
+Stacks de Docker Compose desplegados y en ejecución.
+<img width="2135" height="598" alt="image" src="https://github.com/user-attachments/assets/3e910a02-00b3-4c28-bfe9-ef4698c109e2" />
+
+### DNS con bloqueo de anuncios (Pi-hole)
+Panel con las consultas DNS y los dominios bloqueados.
+<img width="1318" height="1054" alt="image" src="https://github.com/user-attachments/assets/37b45846-bedb-4d5d-ae8d-35f61fe036f1" />
+
+
 ## 🧗 Retos superados
 
 - **Arquitectura 32 vs 64 bits:** compatibilidad de imágenes y paquetes con el sistema de la Pi; los contenedores fijan `platform: linux/arm64` donde hizo falta (y `seccomp:unconfined` para que arranquen).

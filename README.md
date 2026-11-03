@@ -23,7 +23,7 @@ Servidor doméstico en una **Raspberry Pi 4 (1 GB)** pensado para **privacidad y
 ```
                     Internet
                        │
-            tu-dominio.duckdns.org  ◄── script/contenedor DuckDNS (cada 5 min)
+              tu-dominio.duckdns.org  ◄── contenedor DuckDNS (cada 5 min)
                        │
                  Router (NAT)
           ┌────────────┴─────────────┐
@@ -51,8 +51,6 @@ Servidor doméstico en una **Raspberry Pi 4 (1 GB)** pensado para **privacidad y
 │   └── duckdns/             # actualizador en contenedor
 ├── docs/
 │   └── instalacion.md       # comandos y pasos de la instalación
-├── scripts/
-│   └── duckdns-updater.sh   # actualizador para cron
 ├── wireguard/
 │   └── wg0.conf.example     # plantilla sin claves
 ├── .env.example
@@ -80,13 +78,6 @@ Antes de arrancar, sustituye en los compose `TU_USUARIO` (tu usuario de Linux) y
 
 En **Portainer**, cada carpeta `docker/<servicio>` se despliega como un *stack*: pega el compose y rellena las variables `${...}` en la sección *Environment variables*.
 
-### Actualización de IP con cron (alternativa al contenedor)
-
-```bash
-crontab -e
-*/5 * * * * /home/TU_USUARIO/raspi-home-server/scripts/duckdns-updater.sh >> /var/log/duckdns.log 2>&1
-```
-
 ## 🧗 Retos superados
 
 - **Arquitectura 32 vs 64 bits:** compatibilidad de imágenes y paquetes con el sistema de la Pi; los contenedores fijan `platform: linux/arm64` donde hizo falta (y `seccomp:unconfined` para que arranquen).
@@ -112,7 +103,7 @@ crontab -e
 
 ## 📚 Qué aprendí
 
-Linux, redes (NAT, DNS, redirección de puertos, CGNAT), contenedores, VPN, automatización con cron y shell, y resolución de problemas leyendo logs.
+Linux, redes (NAT, DNS, redirección de puertos, CGNAT), contenedores, VPN, automatización con shell y contenedores, y resolución de problemas leyendo logs.
 
 ## 📝 Licencia
 

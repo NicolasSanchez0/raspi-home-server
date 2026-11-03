@@ -23,19 +23,19 @@ Servidor doméstico en una **Raspberry Pi 4 (1 GB)** pensado para **privacidad y
 ```
                     Internet
                        │
-              tu-dominio.duckdns.org  ◄── contenedor DuckDNS (cada 5 min)
+       tu-dominio.duckdns.org  ◄── contenedor DuckDNS (cada 5 min)
                        │
                  Router (NAT)
-          ┌────────────┴─────────────┐
-     UDP 51820                  TCP 80/443
-          │                          │
-      WireGuard             Nginx Proxy Manager ─┐
-          │                                      │  red Docker "proxy_net"
-          │                  ┌───────────────────┼───────────────┐
-          │              Nextcloud ── MariaDB   Pi-hole      (otros servicios)
-          │                  │
-          │             Disco USB
-   Clientes VPN (móvil, portátil) ──► DNS por Pi-hole
+                       │
+                  UDP 51820
+                       │
+               WireGuard (PiVPN)
+                       │
+   Clientes VPN (móvil, portátil) ──► DNS por Pi-hole (nombres *.home)
+                       │
+              Nginx Proxy Manager       red Docker "proxy_net"
+        ┌──────────┬───┴──────┬──────────┐
+    Nextcloud   Navidrome   Homarr   Pi-hole / Portainer
 ```
 
 ## 📁 Estructura del repositorio

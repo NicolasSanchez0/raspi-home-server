@@ -100,6 +100,10 @@ Panel con las consultas DNS y los dominios bloqueados.
 8 contenedores en una Raspberry Pi 4 con 1 GB de RAM y swap.
 <img width="2474" height="385" alt="image" src="https://github.com/user-attachments/assets/dcb63f90-7ba2-4041-9c1e-15f62304108f" />
 
+### VPN WireGuard (PiVPN)
+Clientes conectados al servidor: móvil y portátil, con tráfico en ambos sentidos.
+<img width="1051" height="113" alt="image" src="https://github.com/user-attachments/assets/68bbf476-bca1-408a-a569-75396b05a457" />
+
 ## 🧗 Retos superados
 
 - **Arquitectura 32 vs 64 bits:** compatibilidad de imágenes y paquetes con el sistema de la Pi; los contenedores fijan `platform: linux/arm64` donde hizo falta (y `seccomp:unconfined` para que arranquen).

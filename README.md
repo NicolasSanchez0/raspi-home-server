@@ -12,7 +12,7 @@ Servidor doméstico en una **Raspberry Pi 4 (1 GB)** pensado para **privacidad y
 | **Docker + Portainer** | Contenedores y gestión de stacks (Compose) por web | - |
 | **WireGuard (PiVPN)** | VPN para acceso remoto seguro | UDP 51820 |
 | **Pi-hole** | DNS propio con bloqueo de anuncios y rastreadores | 53, 8080 |
-| **Nginx Proxy Manager** | Proxy inverso y certificados HTTPS | 80, 81, 443 |
+| **Nginx Proxy Manager** | Proxy inverso: un nombre local (`*.home`) por servicio | 80, 81, 443 |
 | **Nextcloud + MariaDB** | Nube personal, datos en disco USB externo | 8082 |
 | **Navidrome** | Servidor de música en streaming | 4533 |
 | **Homarr** | Panel de inicio con acceso a todos los servicios | 7575 |

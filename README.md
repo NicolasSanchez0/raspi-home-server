@@ -86,7 +86,7 @@ Acceso centralizado a todos los servicios del servidor.
 
 ### Gestión de contenedores (Portainer)
 Stacks de Docker Compose desplegados y en ejecución.
-<img width="2135" height="598" alt="image" src="https://github.com/user-attachments/assets/3e910a02-00b3-4c28-bfe9-ef4698c109e2" />
+<img width="2473" height="713" alt="image" src="https://github.com/user-attachments/assets/eeb75007-0924-41a1-a12a-3a951b34a7c4" />
 
 ### DNS con bloqueo de anuncios (Pi-hole)
 Panel con las consultas DNS y los dominios bloqueados.
@@ -108,6 +108,7 @@ Panel con las consultas DNS y los dominios bloqueados.
 - **VPN multi-dispositivo:** cada cliente de WireGuard tiene sus propias claves e IP (compartirlas provoca que se echen del túnel).
 - **Diagnóstico de la VPN:** `wg show` y `tcpdump` para distinguir entre fallo de red, redirección de puertos y reenvío/NAT.
 - **Recursos limitados:** ajustar los servicios a 1 GB de RAM (Nextcloud es el más exigente).
+- **Contenedor "unhealthy" con la app funcionando:** diagnostiqué con `docker inspect` que el healthcheck de Homarr probaba `localhost` y la app solo escuchaba en la IP del contenedor; lo corregí con un healthcheck propio.
 
 ## 🔒 Seguridad
 

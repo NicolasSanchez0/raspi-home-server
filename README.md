@@ -88,10 +88,17 @@ Acceso centralizado a todos los servicios del servidor.
 Stacks de Docker Compose desplegados y en ejecución.
 <img width="2473" height="713" alt="image" src="https://github.com/user-attachments/assets/eeb75007-0924-41a1-a12a-3a951b34a7c4" />
 
+### Proxy inverso (Nginx Proxy Manager)
+Un nombre local por servicio, resuelto por Pi-hole.
+<img width="1331" height="650" alt="image" src="https://github.com/user-attachments/assets/8e88fce8-a4a6-48cc-b7fc-530d311601d1" />
+
 ### DNS con bloqueo de anuncios (Pi-hole)
 Panel con las consultas DNS y los dominios bloqueados.
 <img width="1318" height="1054" alt="image" src="https://github.com/user-attachments/assets/37b45846-bedb-4d5d-ae8d-35f61fe036f1" />
 
+### Servidor en funcionamiento
+8 contenedores en una Raspberry Pi 4 con 1 GB de RAM y swap.
+<img width="2474" height="385" alt="image" src="https://github.com/user-attachments/assets/dcb63f90-7ba2-4041-9c1e-15f62304108f" />
 
 ## 🧗 Retos superados
 

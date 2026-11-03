@@ -10,3 +10,10 @@ services:
       - /home/TU_USUARIO/docker/homarr/data:/data
     ports:
       - "7575:7575"
+    healthcheck:
+      # El healthcheck de la imagen prueba localhost, pero la app solo escucha en la IP del contenedor
+      test: ["CMD-SHELL", "wget -q --spider http://$$(hostname):7575 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

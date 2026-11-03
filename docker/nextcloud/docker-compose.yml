@@ -1,0 +1,43 @@
+services:
+  db:
+    image: mariadb:10.6
+    container_name: mariadb
+    platform: linux/arm64
+    security_opt:
+      - seccomp:unconfined
+    restart: unless-stopped
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+    volumes:
+      - /home/TU_USUARIO/docker/mariadb:/var/lib/mysql
+    networks:
+      - proxy_net
+
+  nextcloud:
+    image: nextcloud:latest
+    container_name: nextcloud
+    platform: linux/arm64
+    security_opt:
+      - seccomp:unconfined
+    restart: unless-stopped
+    ports:
+      - '8082:80'
+    environment:
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=db
+    volumes:
+      - /mnt/TU_DISCO_USB:/var/www/html   # Datos en disco USB externo
+    networks:
+      - proxy_net
+    depends_on:
+      - db
+
+networks:
+  proxy_net:
+    external: true

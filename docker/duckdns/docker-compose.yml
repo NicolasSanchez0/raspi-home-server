@@ -1,0 +1,20 @@
+# Alternativa al script de cron: actualizador de IP en un contenedor
+services:
+  duckdns:
+    image: alpine:latest
+    container_name: duckdns
+    network_mode: host
+    environment:
+      - DUCKDNS_DOMAIN=${DUCKDNS_DOMAIN}
+      - DUCKDNS_TOKEN=${DUCKDNS_TOKEN}
+    command: >
+      sh -c "
+      apk add --no-cache curl;
+      while true; do
+      echo 'Actualizando IP en Duck DNS...';
+      curl -s --max-time 20 \"https://www.duckdns.org/update?domains=$${DUCKDNS_DOMAIN}&token=$${DUCKDNS_TOKEN}&ip=\";
+      echo;
+      sleep 300;
+      done
+      "
+    restart: unless-stopped

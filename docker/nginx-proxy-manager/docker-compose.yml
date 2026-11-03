@@ -1,0 +1,21 @@
+services:
+  npm:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: npm
+    platform: linux/arm64
+    security_opt:
+      - seccomp:unconfined
+    restart: unless-stopped
+    ports:
+      - '80:80'     # HTTP
+      - '81:81'     # Panel de administración (no exponer a Internet)
+      - '443:443'   # HTTPS
+    volumes:
+      - /home/TU_USUARIO/docker/npm/data:/data
+      - /home/TU_USUARIO/docker/npm/letsencrypt:/etc/letsencrypt
+    networks:
+      - proxy_net
+
+networks:
+  proxy_net:
+    external: true

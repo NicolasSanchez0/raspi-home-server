@@ -1,0 +1,21 @@
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8080:80/tcp"   # Panel web
+    environment:
+      TZ: ${TZ}
+      WEBPASSWORD: ${PIHOLE_PASSWORD}
+    volumes:
+      - /home/TU_USUARIO/docker/pihole/etc-pihole:/etc/pihole
+      - /home/TU_USUARIO/docker/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
+    restart: unless-stopped
+    networks:
+      - proxy_net
+
+networks:
+  proxy_net:
+    external: true

@@ -1,0 +1,19 @@
+# Plantilla SIN claves reales. El archivo real vive en /etc/wireguard/wg0.conf y NO se sube.
+[Interface]
+Address = 10.X.X.1/24
+ListenPort = 51820
+PrivateKey = TU_CLAVE_PRIVADA_AQUI
+PostUp   = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+
+# Un bloque [Peer] por dispositivo (cada uno con su IP y sus claves)
+[Peer]
+# movil
+PublicKey = CLAVE_PUBLICA_DEL_MOVIL
+PresharedKey = TU_PRESHARED_KEY_AQUI
+AllowedIPs = 10.X.X.2/32
+
+[Peer]
+# portatil
+PublicKey = CLAVE_PUBLICA_DEL_PORTATIL
+AllowedIPs = 10.X.X.3/32

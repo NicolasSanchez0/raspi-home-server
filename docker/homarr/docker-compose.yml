@@ -1,0 +1,12 @@
+services:
+  homarr:
+    image: ghcr.io/ajnart/homarr:latest
+    container_name: homarr
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock   # Da control total sobre Docker: no exponer Homarr a Internet
+      - /home/TU_USUARIO/docker/homarr/configs:/app/data/configs
+      - /home/TU_USUARIO/docker/homarr/icons:/app/public/icons
+      - /home/TU_USUARIO/docker/homarr/data:/data
+    ports:
+      - "7575:7575"
